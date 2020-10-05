@@ -2,6 +2,7 @@
 
 ## Part 1: Conceptual questions
 1. What is a dynamic ORM?
+    
 2. What is DRY code and how do we use abstraction / dynamic methods to achieve it?
 
 ## Part 2: Coding Challenge - Making our ORM more dynamic

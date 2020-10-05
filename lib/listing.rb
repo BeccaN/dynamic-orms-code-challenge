@@ -1,13 +1,8 @@
-class Listing
+class Listing < InterActive
     # Listing belongs to Agent
-    attr_reader :location, :id
-    attr_accessor :status, :price, :agent
+    attr_reader :id
+    attr_accessor :status, :price, :agent, :location
     
-    def initialize(location, price, status="for sale")
-        @location = location
-        @price = price
-        @status = status
-    end
     
     def price_drop(percentage)
         self.price -= self.price*percentage

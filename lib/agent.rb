@@ -1,14 +1,8 @@
-class Agent
+class Agent < InterActive
     # Agent has many Listings
-    attr_reader :name, :id
-    attr_accessor :telephone, :yrs_experience
-  
-    def initialize(name, telephone, yrs_experience)
-      @name = name 
-      @telephone = telephone 
-      @yrs_experience = yrs_experience
-    end   
-  
+    attr_reader :id
+    attr_accessor :telephone, :yrs_experience, :name 
+    
     def listings 
       Listing.all.select {|listing| listing.agent == self}
     end   
@@ -31,15 +25,6 @@ class Agent
       DB[:conn].execute(sql)
   end
   
-    def save
-      sql = <<-SQL
-      INSERT INTO agents (name, telephone, yrs_experience)
-      VALUES (?,?,?)
-      SQL
-  
-      DB[:conn].execute(sql, self.name, self.telephone, self.yrs_experience)
-  
-      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM agents")[0][0]
-    end
+
   
   end  
